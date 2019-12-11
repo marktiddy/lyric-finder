@@ -1,0 +1,85 @@
+/* CSS Variables */
+:root {
+--primary-color: #450EB4;
+--secondary-color: #f2f2f2;
+--primary-font: 'Lilita One', cursive;
+--secondary-font: 'Open Sans', sans-serif;
+}
+
+/* Main CSS */
+body {
+  font-family: var(--secondary-font);
+  color: var(--secondary-color)
+}
+
+h1 {
+  font-family: var(--primary-font);
+}
+
+.lyric--grid__container {
+display: grid;
+grid-template-columns: 0.8fr 2fr;
+justify-items: stretch;
+align-items: flex-start;
+}
+
+.lyric--grid__item {
+  padding: 20px 10px 20px 20px;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: var(--primary-color);
+}
+
+.main-content {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.sidebar p {
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.lyrics-title {
+  font-family: var(--primary-font);
+  text-transform: uppercase;
+}
+
+/* Form CSS */
+#lyrics-form {
+  padding: 10px;
+
+}
+
+#lyrics-form input {
+width: 90%;
+padding: 5px;
+border: 1px solid var(--secondary-color);
+margin-top: 5px;
+}
+
+.standard-label {
+width: 90%;
+}
+
+#lyrics-form button {
+padding: 10px 20px 10px 20px;
+background-color: var(--secondary-color);
+color: var(--primary-color);
+font-family: var(--primary-font);
+text-transform: uppercase;
+font-size: 16px;
+transition: 0.3s opacity;
+}
+
+#lyrics-form button:hover, #lyrics-form button:active {
+  opacity: 0.8;
+  curser: pointer;
+}
+
+.form-paragraph {
+
+}
+

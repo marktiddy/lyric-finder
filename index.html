@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lilita+One|Open+Sans:300i,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Lyric Finder</title>
+</head>
+
+<body>
+  <div class="lyric--grid__container">
+    <div class="lyric--grid__item sidebar">
+      <h1>LYRIC FINDER</h1>
+      <p>Type a band or artist name and song to display the lyrics</p>
+      <form action="#" method="GET" id="lyrics-form">
+        <p class="form-paragraph">
+          <label class="standard-label" for="band-name">Band/Artist Name</label><br>
+          <input type="text" id="band-name" placeholder="Backroom Stereo" required>
+        </p>
+        <p class="form-paragraph">
+          <label class="standard-label" for="song-title">Song Title</label><br>
+          <input type="text" id="song-title" placeholder="Oh, Serena" required>
+        </p>
+        <button type="submit">Get Lyrics!</button>
+      </form>
+    </div>
+    <div class="lyric--grid__item main-content">
+      <h2 class="lyrics-title">Blink 182 - The Party Song</h2>
+      <p class="lyrics-content">Do you want to go to a party?</p>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+
+</html>
