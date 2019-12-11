@@ -83,3 +83,22 @@ transition: 0.3s opacity;
 
 }
 
+/* Mobile Optimisation */
+@media all and (max-width: 450px) { 
+
+  .lyric--grid__container {
+  grid-template-columns: 1fr;
+}
+
+.sidebar {
+  text-align: center;
+}
+.main-content {
+  text-align: center;
+}
+#lyrics-form {
+  text-align: center;
+}
+
+
+}
