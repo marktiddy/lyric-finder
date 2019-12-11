@@ -6,13 +6,21 @@ var lyricRepository = (function () {
   function getSongDetails(bandName, songName) {
     $.ajax(`${apiUrl}${bandName}/${songName}`, { dataType: 'json' })
       .then(function (responseJSON) {
-        loadContent(bandName, songName, responseJSON)
+        if (responseJSON.lyrics != "") {
+          loadContent(bandName, songName, responseJSON)
+        } else {
+          showError();
+        }
       }).catch(function (error) {
-        var $parentGridItem = $('.main-content');
-        $parentGridItem.empty();
-        $parentGridItem.append($('<h2 class="lyrics-title">Error</h2>'));
-        $parentGridItem.append($('<p class="lyrics-content">We didn\'t find that song title. Try searching another</p>'));
+        showError()
       });
+  }
+
+  function showError() {
+    var $parentGridItem = $('.main-content');
+    $parentGridItem.empty();
+    $parentGridItem.append($('<h2 class="lyrics-title">Error</h2>'));
+    $parentGridItem.append($('<p class="lyrics-content">We didn\'t find that song title. Try searching another</p>'));
   }
 
   function loadContent(bandName, songName, lyrics) {
@@ -32,6 +40,7 @@ var lyricRepository = (function () {
 
     //Finally, let's append the content
     $parentGridItem.append($newTitle).append($newLyrics);
+
   }
 
   //Add event listeners form our form
