@@ -4,6 +4,12 @@ var lyricRepository = (function () {
 
   //API Call function
   function getSongDetails(bandName, songName) {
+    //First we empty our existing song and show a loader
+    var $parentGridItem = $('.main-content');
+    $parentGridItem.empty();
+    $parentGridItem.append($('<div class="loader"></div>'));
+
+    //Then we access the API
     $.ajax(`${apiUrl}${bandName}/${songName}`, { dataType: 'json' })
       .then(function (responseJSON) {
         if (responseJSON.lyrics != "") {

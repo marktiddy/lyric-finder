@@ -21,6 +21,7 @@ display: grid;
 grid-template-columns: 0.8fr 2fr;
 justify-items: stretch;
 align-items: flex-start;
+height: 100%;
 }
 
 .lyric--grid__item {
@@ -35,6 +36,22 @@ align-items: flex-start;
 .main-content {
   background-color: var(--secondary-color);
   color: var(--primary-color);
+}
+
+.loader {
+  border: 16px solid var(--secondary-color);
+  border-top: 16px solid var(--primary-color);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 
 .sidebar p {
