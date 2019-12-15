@@ -4,10 +4,14 @@ var lyricRepository = (function () {
 
   //API Call function
   function getSongDetails(bandName, songName) {
-    //First we empty our existing song and show a loader
-    var $parentGridItem = $('.main-content');
-    $parentGridItem.empty();
-    $parentGridItem.append($('<div class="loader"></div>'));
+
+    //First let's show a loading spinner and hide our form
+    var $documentBody = $('body');
+    $documentBody.append($('<div class="container text-info interactive-content"><div class="row"><div class="col lyric-container"><div class="spinner-border text-info" role="status"><span class="sr-only">Loading...</span></div></div></div></div>'))
+
+    //Then hide the form
+    var $form = $('#lyrics-form');
+    $form.hide();
 
     //Then we access the API
     $.ajax(`${apiUrl}${bandName}/${songName}`, { dataType: 'json' })
@@ -19,33 +23,58 @@ var lyricRepository = (function () {
         }
       }).catch(function (error) {
         showError()
+        showError()
       });
   }
 
   function showError() {
-    var $parentGridItem = $('.main-content');
+    var $parentGridItem = $('.lyric-container');
     $parentGridItem.empty();
-    $parentGridItem.append($('<h2 class="lyrics-title">Error</h2>'));
+    $parentGridItem.append($('<h3 class="lyrics-title text-info">Error</h3>'));
     $parentGridItem.append($('<p class="lyrics-content">We didn\'t find that song title. Try searching another</p>'));
+    loadResetButton();
   }
 
   function loadContent(bandName, songName, lyrics) {
+    //Remove info text
+    var $introText = $('.intro-text');
+    $introText.hide();
 
-    //Let's get our parent grid class first
-    var $parentGridItem = $('.main-content');
+    //Access the lyric container and empty it
 
-    //Empty the parent
-    $parentGridItem.empty();
+    var $lyricContainer = $('.lyric-container');
+
+    $lyricContainer.empty();
 
     //Create a new element for the title
-    var $newTitle = $(`<h2 class="lyrics-title">${bandName} - ${songName}</h2>`);
+    var $newTitle = $(`<h3 class="lyrics-title text-info text-capitalize">${bandName} - ${songName}</h3>`);
 
     //Create the lyric item
     var lyrics = lyrics.lyrics;
-    var $newLyrics = $(`<p class="lyrics-content">${lyrics}</p>`);
+    var $newLyrics = $(`<p class="lyrics-content text-dark">${lyrics}</p>`);
 
     //Finally, let's append the content
-    $parentGridItem.append($newTitle).append($newLyrics);
+    $lyricContainer.append($newTitle).append($newLyrics);
+
+    //And load a reset button
+    loadResetButton()
+  }
+
+  function loadResetButton() {
+    var $parentContainer = $('.lyric-container');
+    var $newButton = $('<button type="button" class="btn btn-info">Search for another song</button><br>');
+    $parentContainer.append($newButton);
+
+    //Event listener
+    $($newButton).on('click', function (event) {
+      var $introText = $('.intro-text');
+      $introText.show();
+      var $form = $('#lyrics-form');
+      $form.show();
+      var $container = $('.interactive-content');
+      $container.remove();
+    });
+
 
   }
 
