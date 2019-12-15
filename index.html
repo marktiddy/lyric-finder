@@ -3,39 +3,51 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Lilita+One|Open+Sans:300i,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--<link href="https://fonts.googleapis.com/css?family=Lilita+One|Open+Sans:300i,400&display=swap" rel="stylesheet">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Lyric Finder</title>
 </head>
 
 <body>
-  <div class="lyric--grid__container">
-    <div class="lyric--grid__item sidebar">
-      <h1>LYRIC FINDER</h1>
-      <p>Type a band or artist name and song to display the lyrics</p>
-      <form action="#" method="GET" id="lyrics-form">
-        <p class="form-paragraph">
-          <label class="standard-label" for="band-name">Band/Artist Name</label><br>
-          <input type="text" id="band-name" placeholder="Blink-182" required>
-          <p class="band-error">Please add a band/artist name</p>
-        </p>
-        <p class="form-paragraph">
-          <label class="standard-label" for="song-title">Song Title</label><br>
-          <input type="text" id="song-title" placeholder="The Party Song" required>
-          <p class="song-error">Please add a song title</p>
-        </p>
-        <button type="submit" id="lyric-search-submit">Get Lyrics!</button>
-      </form>
-    </div>
-    <div class="lyric--grid__item main-content">
+  <nav class="navbar bg-info">
+    <a class="navbar-brand text-light" href="index.html">Simple Lyric Finder</a>
+  </nav>
 
+  <main class="container text-info intro-text">
+    <div class="row">
+      <div class="col">
+        <h4>Search for Lyrics</h3>
+          <p>Type in an artist and song title to find lyrics</p>
+      </div>
     </div>
-  </div>
+  </main>
+
+  <form action="#" method="GET" id="lyrics-form" class="container">
+    <div class="form-group">
+      <label class="standard-label" for="band-name">Band/Artist Name</label>
+      <input type="text" id="band-name" class="form-control col" placeholder="Blink-182" required>
+      <p class="band-error">Please add a band/artist name</p>
+    </div>
+
+    <div class="form-group">
+      <label class="standard-label" for="song-title">Song Title</label><br>
+      <input type="text" id="song-title" class="form-control col" placeholder="The Party Song" required>
+      <p class="song-error">Please add a song title</p>
+    </div>
+    <button type="submit" class="btn btn-info" id="lyric-search-submit">
+      Get Lyrics!
+    </button>
+  </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 
 </html>
